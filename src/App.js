@@ -22,10 +22,11 @@ class App extends Component {
   }
   render(){
     console.log('App render');
-    var _title, _desc = null;
+    var _title, _desc, _article = null;
     if(this.state.mode==='welcome'){
       _title = this.state.welcome.title;
       _desc = this.state.welcome.desc;
+      _article = <ReadContent title={_title} desc={_desc}></ReadContent>
     }else{
       var i=0;
       while(i < this.state.contents.length){
@@ -37,6 +38,7 @@ class App extends Component {
         }
         i = i + 1;
       }
+      _article = <ReadContent title={_title} desc={_desc}></ReadContent>
     }
     return (
       <div className="App">
@@ -63,7 +65,8 @@ class App extends Component {
             mode:_mode
           });
         }.bind(this)}></Control>
-        <ReadContent title={_title} desc={_desc}></ReadContent>
+        {/* <ReadContent title={_title} desc={_desc}></ReadContent> */}
+        {_article}
       </div>
     );
   }
