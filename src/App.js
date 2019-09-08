@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TOC from './components/TOC';
 import Content from './components/Content';
 import Subject from './components/Subject';
+import Control from './components/Control';
 import './App.css';
 
 class App extends Component {
@@ -57,6 +58,7 @@ class App extends Component {
           }.bind(this)}
         >
         </TOC>
+        <Control></Control>
         <Content title={_title} desc={_desc}></Content>
       </div>
     );
