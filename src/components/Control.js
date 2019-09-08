@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Control extends Component {
     render(){
-      console.log('Subject render');
+      console.log('Control render');
       return (
         <ul>
           <li><a href="/create">create</a></li>
@@ -13,4 +13,4 @@ class Control extends Component {
     }
   }
 
-export default Control; 
+export default Control;
