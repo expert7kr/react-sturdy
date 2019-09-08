@@ -4,6 +4,7 @@ import ReadContent from './components/ReadContent';
 import Subject from './components/Subject';
 import Control from './components/Control';
 import './App.css';
+import CreateContent from './components/CreateContent';
 
 class App extends Component {
   constructor(props){
@@ -27,7 +28,7 @@ class App extends Component {
       _title = this.state.welcome.title;
       _desc = this.state.welcome.desc;
       _article = <ReadContent title={_title} desc={_desc}></ReadContent>
-    }else{
+    }else if(this.state.mode==='read'){
       var i=0;
       while(i < this.state.contents.length){
         var data = this.state.contents[i];
@@ -39,6 +40,8 @@ class App extends Component {
         i = i + 1;
       }
       _article = <ReadContent title={_title} desc={_desc}></ReadContent>
+    }else{
+      _article = <CreateContent></CreateContent>
     }
     return (
       <div className="App">
