@@ -41,7 +41,11 @@ class App extends Component {
       }
       _article = <ReadContent title={_title} desc={_desc}></ReadContent>
     }else{
-      _article = <CreateContent></CreateContent>
+      _article = <CreateContent onSubmit1={function(_title, _desc){
+        // add content to this.state.contents
+        console.log(_title,_desc);
+      // }.bind(this)}></CreateContent>
+      }}></CreateContent>
     }
     return (
       <div className="App">
