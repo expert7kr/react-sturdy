@@ -41,7 +41,7 @@ class App extends Component {
         i = i + 1;
       }
       _article = <ReadContent title={_title} desc={_desc}></ReadContent>
-    }else{
+    }else{ // else if(this.state.mode === 'create'){
       _article = <CreateContent onSubmit={function(_title, _desc){
         // add content to this.state.contents
         this.max_content_id = this.max_content_id+1;
