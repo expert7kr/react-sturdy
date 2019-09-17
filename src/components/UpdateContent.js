@@ -8,6 +8,9 @@ class UpdateContent extends Component {
          desc:this.props.data.desc
     }
   }
+  inputFormHandler(e){
+    this.setState({title:e.target.value});
+  }
   render(){
     console.log(this.props.data);
     console.log('UpdateContent render');
@@ -30,9 +33,7 @@ class UpdateContent extends Component {
               name='title' 
               placeholder='title'
               value={this.state.title}
-              onChange={function(e){
-                this.setState({title:e.target.value});
-              }.bind(this)}
+              onChange={this.inputFormHandler.bind(this)}
             ></input>
           </p>
           <p>
