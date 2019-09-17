@@ -7,6 +7,7 @@ class UpdateContent extends Component {
          title:this.props.data.title,
          desc:this.props.data.desc
     }
+    this.inputFormHandler = this.inputFormHandler.bind(this);
   }
   inputFormHandler(e){
     this.setState({[e.target.name]:e.target.value});
@@ -33,12 +34,12 @@ class UpdateContent extends Component {
               name='title' 
               placeholder='title'
               value={this.state.title}
-              onChange={this.inputFormHandler.bind(this)}
+              onChange={this.inputFormHandler}
             ></input>
           </p>
           <p>
             <textarea 
-              onChange={this.inputFormHandler.bind(this)}
+              onChange={this.inputFormHandler}
               name='desc' 
               placeholder='description' 
               value={this.state.desc}></textarea>
