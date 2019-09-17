@@ -9,7 +9,7 @@ class UpdateContent extends Component {
     }
   }
   inputFormHandler(e){
-    this.setState({title:e.target.value});
+    this.setState({[e.target.name]:e.target.value});
   }
   render(){
     console.log(this.props.data);
@@ -38,9 +38,7 @@ class UpdateContent extends Component {
           </p>
           <p>
             <textarea 
-              onChange={function(e){
-                this.setState({desc:e.target.value});
-              }.bind(this)}
+              onChange={this.inputFormHandler.bind(this)}
               name='desc' 
               placeholder='description' 
               value={this.state.desc}></textarea>
