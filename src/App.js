@@ -43,21 +43,12 @@ class App extends Component {
     }else if(this.state.mode==='read'){
       var _content = this.getReadContent();
       _article = <ReadContent title={_content.title} desc={_content.desc}></ReadContent>
-    // }else{ 
     }else if(this.state.mode === 'create'){
       _article = <CreateContent onSubmit={function(_title, _desc){
-        // add content to this.state.contents
         this.max_content_id = this.max_content_id+1;
-        // this.state.contents.push(
-        //   {id:this.max_content_id, title:_title, desc:_desc}
-        // );
-        // var _contents = this.state.contents.concat(
-        //   {id:this.max_content_id, title:_title, desc:_desc}
-        // );
         var newContents = Array.from(this.state.contents);
         newContents.push({id:this.max_content_id, title:_title, desc:_desc})
         this.setState({
-          // contents:_contents
           contents:newContents
         });   
         console.log(_title,_desc);
@@ -66,18 +57,10 @@ class App extends Component {
     // }else if(this.state.mode === 'update'){
       _content = this.getReadContent();
       _article = <UpdateContent data = {_content} onSubmit={function(_title, _desc){
-        // add content to this.state.contents
         this.max_content_id = this.max_content_id+1;
-        // this.state.contents.push(
-        //   {id:this.max_content_id, title:_title, desc:_desc}
-        // );
-        // var _contents = this.state.contents.concat(
-        //   {id:this.max_content_id, title:_title, desc:_desc}
-        // );
         var newContents = Array.from(this.state.contents);
         newContents.push({id:this.max_content_id, title:_title, desc:_desc})
         this.setState({
-          // contents:_contents
           contents:newContents
         });   
         console.log(_title,_desc);
@@ -113,8 +96,6 @@ class App extends Component {
             mode:_mode
           });
         }.bind(this)}></Control>
-        {/* <ReadContent title={_title} desc={_desc}></ReadContent> */}
-        {/* {_article} */}
         {this.getContent()}
       </div>
     );
