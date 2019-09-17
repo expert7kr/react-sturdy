@@ -23,8 +23,7 @@ class App extends Component {
       ]
     }
   }
-  render(){
-    console.log('App render');
+  getContent(){
     var _title, _desc, _article = null;
     if(this.state.mode==='welcome'){
       _title = this.state.welcome.title;
@@ -63,7 +62,7 @@ class App extends Component {
       }.bind(this)}></CreateContent>
     }else{ 
     // }else if(this.state.mode === 'update'){
-        _article = <UpdateContent onSubmit={function(_title, _desc){
+       _article = <UpdateContent onSubmit={function(_title, _desc){
           // add content to this.state.contents
           this.max_content_id = this.max_content_id+1;
           // this.state.contents.push(
@@ -79,8 +78,13 @@ class App extends Component {
             contents:newContents
           });   
           console.log(_title,_desc);
-        }.bind(this)}></UpdateContent>
+      }.bind(this)}></UpdateContent>
     }
+    return _article;
+  }
+  render(){
+    console.log('App render');
+    
     return (
       <div className="App">
         <Subject 
@@ -107,7 +111,8 @@ class App extends Component {
           });
         }.bind(this)}></Control>
         {/* <ReadContent title={_title} desc={_desc}></ReadContent> */}
-        {_article}
+        {/* {_article} */}
+        {this.getContent()}
       </div>
     );
   }
