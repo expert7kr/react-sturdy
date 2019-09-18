@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 class UpdateContent extends Component {
   constructor(props){
     super(props);
+    // console.log('UpdateContent props id: ',this.props.data.id);
     this.state = {
-         title:this.props.data.title,
-         desc:this.props.data.desc
+      id:this.props.data.id,
+      title:this.props.data.title,
+      desc:this.props.data.desc
     }
     this.inputFormHandler = this.inputFormHandler.bind(this);
   }
@@ -22,12 +24,13 @@ class UpdateContent extends Component {
           onSubmit={function(e){
             e.preventDefault();
             this.props.onSubmit(
-              e.target.title.value,
-              e.target.desc.value
+              this.state.id,
+              this.state.title,
+              this.state.desc
             );
-            // alert('Submit!!!')
           }.bind(this)}
         >
+          <input type="hidden" name="id" value={this.state.id}></input>
           <p>
             <input 
               type='text' 
